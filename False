@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20150507202059_change_rsvp_default_for_guest.rb

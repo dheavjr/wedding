@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="col-md-12">
+  	<strong>Name:</strong>
+  	<%= @guest.name %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<strong>Street:</strong>
+		<%= @guest.street1 %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<% if @guest.street2 != '' %>
+			<strong>Street 2:</strong>
+			<%= @guest.street2 %>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+  	<strong>City:</strong>
+  	<%= @guest.city %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+  	<strong>State:</strong>
+  	<%= @guest.state %>
+	</div>
+</div?
+
+<div class="row">
+	<div class="col-md-12">
+		<strong>Zip:</strong>
+		<%= @guest.zip %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<%= image_tag url_for(@guest.name+'.png') %>
+	</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+	<%= link_to 'Edit', edit_guest_path(@guest), class: "btn btn-primary" %> |
+	<%= link_to 'Back', guests_path, class: "btn btn-primary" %>
+</div>
+</div>

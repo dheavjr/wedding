@@ -1,0 +1,3 @@
+class Guest < ActiveRecord::Base
+	self.rsvp = false if self.rsvp.nil?
+end

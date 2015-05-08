@@ -1,0 +1,5 @@
+class ChangeRsvpDefaultForG < ActiveRecord::Migration
+  def change
+  	change_column :guests, :rsvp, :default => false
+  end
+end

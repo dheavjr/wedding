@@ -1,0 +1,35 @@
+<style>
+table.qr-code {
+  border-width: 0;
+  border-style: none;
+  border-color: #0000ff;
+  border-collapse: collapse;
+  margin-bottom:10px;
+}
+table.qr-code td {
+  border-width: 0;
+  border-style: none;
+  border-color: #0000ff;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
+  width: 15px;
+  height: 15px;
+}
+table.qr-code td.foreground { background-color: red; }
+table.qr-code td.background { background-color: white; }
+</style>
+<table class="qr-code">
+<% @qr.modules.each_index do |x| %>
+  <tr>
+  <% @qr.modules.each_index do |y| %>
+   <% if @qr.dark?(x,y) %>
+    <td class="foreground"/>
+   <% else %>
+    <td class="background"/>
+   <% end %>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+<%= link_to "Back", guests_path %>

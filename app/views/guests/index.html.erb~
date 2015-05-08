@@ -1,0 +1,56 @@
+<h1>Listing Guests</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <% if false %>
+		    <th>Street1</th>
+		    <th>Street2</th>
+		    <th>City</th>
+		    <th>State</th>
+		    <th>Zip</th>
+      <% end %>
+      <th>RSVP</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guests.each do |guest| %>
+      <tr>
+        <td><%= guest.name %></td>
+        <% if false %>
+		      <td><%= guest.street1 %></td>
+		      <td><%= guest.street2 %></td>
+		      <td><%= guest.city %></td>
+		      <td><%= guest.state %></td>
+		      <td><%= guest.zip %></td>
+        <% end %>
+        <td><%= guest.rsvp %></td>
+        <td><%= link_to "Generate QR Code" qr_codes_path(:id => guest.id) %></td>
+        <td>
+        	<%= link_to guest do %>
+        		<span class="glyphicon glyphicon-align-justify" title="View"></span>
+        	<% end %>
+        </td>
+        <td>
+        	<%= link_to edit_guest_path(guest) do %>
+        		<span class="glyphicon glyphicon-wrench" title="Edit"></span>
+        	<% end %>
+        </td>
+        <td>
+        	<%= link_to guest, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        		<span class="glyphicon glyphicon-remove-circle" title="Destroy"></span>
+        	<% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_guest_path, class: "btn btn-primary" do %>
+	<span class="glyphicon glyphicon-user"></span> New Guest
+<% end %>
